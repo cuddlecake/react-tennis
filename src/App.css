@@ -1,38 +1,110 @@
+:root {
+  --p1-fill: #004b87;
+  --p1-hl: #ffcd00;
+  --p1-text: white;
+  --p2-fill: #d52b1e;
+  --p2-hl: lightblue;
+  --p2-text: white;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
 .App {
-  text-align: center;
+  width: 320px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button {
+  color: var(--text-color, black);
+  background-color: var(--fill-color, transparent);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button {
+  border-radius: 8px;
+  padding: 8px 4px;
+  box-shadow: 0 0 0 var(--ring-width, 0px) var(--ring-color, transparent),
+    0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button:hover,
+button:focus {
+  --ring-width: 2px;
+  --ring-color: var(--focus-ring-color);
+}
+
+button:focus {
+  outline: none;
+}
+
+.flolumn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.flolumn > * + * {
+  margin-top: 16px;
 }
 
-.App-link {
-  color: #61dafb;
+.flow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.flow > * + * {
+  margin-left: 16px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.be.very.long {
+  height: min(100%, 100vh);
+}
+
+.take.a.breadth {
+  width: min(100%, 100vw);
+}
+
+.please.don\'t.touch {
+  justify-content: space-between;
+}
+
+.player-1 {
+  --fill-color: var(--p1-fill);
+  --focus-ring-color: var(--p1-hl);
+  --text-color: var(--p1-text);
+}
+
+.player-2 {
+  --fill-color: var(--p2-fill);
+  --focus-ring-color: var(--p2-hl);
+  --text-color: var(--p2-text);
+}
+
+.shirt {
+  fill: var(--fill-color);
+  stroke: black;
+  stroke-width: 1px;
+}
+
+.this.is.score.it.scores {
+  color: red;
+}
+
+.advantage-1 .player-1 .head {
+  fill: var(--p1-hl);
+}
+.advantage-2 .player-2 .head {
+  fill: var(--p2-hl);
+}
+
+.winner-1 .player-1 .head,
+.winner-2 .player-2 .head {
+  fill: green;
+}
+
+.winner-1 .player-2 .head,
+.winner-2 .player-1 .head {
+  fill: red;
 }
